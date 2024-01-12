@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 import java.util.EventListener;
 public class Calculator {
+    private char operator;
+    private double num1,num2;
     private JPanel Calculator;
     private JTextField textDisplay;
     private JButton buttonminus;
@@ -45,6 +47,11 @@ public class Calculator {
     private JButton logButton;
     private JButton lnButton;
 
+    private void getOperator(String btnText){
+        operator=btnText.charAt(0);
+        num1=num1+Double.parseDouble(textDisplay.getText());
+        textDisplay.setText("");
+    }
     public Calculator() {
         buttonone.addActionListener(new ActionListener() {
             @Override
@@ -117,7 +124,152 @@ public class Calculator {
                 textDisplay.setText(btnZeroText);
             }
         });
+
+        buttonleft.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnLeftText=textDisplay.getText()+buttonleft.getText();
+                textDisplay.setText(btnLeftText);
+            }
+        });
+        buttonright.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnRightText=textDisplay.getText()+buttonright.getText();
+                textDisplay.setText(btnRightText);
+            }
+        });
+        buttonac.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textDisplay.setText("");
+            }
+        });
+
+        buttondel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String delText = textDisplay.getText();
+                if (delText != null && !delText.isEmpty()) {
+                    delText = delText.substring(0, delText.length() - 1);
+                    textDisplay.setText(delText); // Update the text display
+                }
+            }
+            });
+        buttonplus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=buttonplus.getText();
+                getOperator(btnText);
+            }
+        });
+        buttonminus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=buttonminus.getText();
+                getOperator(btnText);
+            }
+        });
+        buttonmul.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=buttonmul.getText();
+                getOperator(btnText);
+            }
+        });
+        buttondivide.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=buttondivide.getText();
+                getOperator(btnText);
+            }
+        });
+        buttonsin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=buttonsin.getText();
+                getOperator(btnText);
+            }
+        });
+        buttoncos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=buttoncos.getText();
+                getOperator(btnText);
+            }
+        });
+        Buttontan.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=Buttontan.getText();
+                getOperator(btnText);
+            }
+        });
+        sinInvButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=sinInvButton.getText();
+                getOperator(btnText);
+            }
+        });
+        cosInvButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=cosInvButton.getText();
+                getOperator(btnText);
+            }
+        });
+        tanInvButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnText=tanInvButton.getText();
+                getOperator(btnText);
+            }
+        });
+        logButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        lnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        sqrtButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        cubertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        a1XButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        xXButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        xNButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Calculator");
